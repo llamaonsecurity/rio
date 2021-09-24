@@ -1,0 +1,20 @@
+## _title_
+URL : _url_
+Target: _target_
+
+```text
+Request:
+_request_fl_
+_request_header[Host]_
+[...]
+
+_request_content_
+Response:
+_response_status_
+_response_header[Server]_
+_response_header[Date]_
+_response_header[Content-Length]_
+[...]
+
+_response_content_
+```

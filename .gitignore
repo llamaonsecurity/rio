@@ -1,0 +1,12 @@
+# Compiled class file
+*.class
+.classpath 
+target/
+.settings/
+.DS_Store
+deploy
+bin/
+.idea/
+.project
+deploy 2/
+*.iml
