@@ -22,7 +22,7 @@ If your answer for those question happens to be  999 or more, than I have a solu
 5. Done. 
 
 ### Few words on response output
-* The plugin was created with Markdown  as an desired output format but you can use whatever output format you want 
+* The plugin was created with Markdown  as an desired output format, but you can use whatever output format you want 
 
 ```text
 <request>
