@@ -69,11 +69,8 @@ public class RepeaterMessageEditorTab implements IMessageEditorTab {
         //logger.setLevel(Level.INFO);
         logger.addHandler(new PluginHandler());
 
-        setupTemplate();
-        logger.info("Editable: " + editable);
-        logger.info("Info log");
-        logger.warning("warning log");
-        logger.severe("severe log");
+       // setupTemplate();
+
 
         this.controller = controller;
 

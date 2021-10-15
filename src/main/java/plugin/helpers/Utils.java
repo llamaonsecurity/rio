@@ -30,6 +30,7 @@ public class Utils {
 
     public String loadExtensionSettings(String key) {
         return this.callbacks.loadExtensionSetting(key);
+        //return "";
     }
 
     public void saveSettings(String key, String value) {
@@ -50,21 +51,26 @@ public class Utils {
        logger.fine("loading settings");
         String url = "http://" + EXTENSION_SETTINGS_URL + ":8080/" + key;
        logger.fine("url " + url);
-
-        // Remove host from sitemap in case of null exception
-        IHttpRequestResponse[] siteMap = callbacks.getSiteMap(url);
         String data = "";
+        // Remove host from sitemap in case of null exception
+        try {
+            IHttpRequestResponse[] siteMap = callbacks.getSiteMap(url);
 
-        int length = siteMap.length;
-        if (length != 0) {
+            if (siteMap != null) {
+                int length = siteMap.length;
+                if (length != 0) {
 
-            IHttpRequestResponse response = siteMap[0];
-
-            data = this.callbacks.getHelpers().bytesToString(response.getResponse());
-            if (data != null) {
-                data = data.replace("HTTP/1.1 200 OK\r\n", "");
+                    IHttpRequestResponse response = siteMap[0];
+                    if(response!=null) {
+                        data = this.callbacks.getHelpers().bytesToString(response.getResponse());
+                        if (data != null) {
+                            data = data.replace("HTTP/1.1 200 OK\r\n", "");
+                        }
+                    }
+                }
             }
-
+        }catch(Exception e){
+            data="Exception during parsing";
         }
         return data;
     }
@@ -72,6 +78,7 @@ public class Utils {
     public String getCurrentTemplate(){
 
         String savedTemplateFromProject = this.loadSettings(Config.EXTENSION_SAVED_TEMPLATE_KEY);
+        //String savedTemplateFromProject = "";
         String savedTemplate = this.loadExtensionSettings(Config.EXTENSION_SAVED_TEMPLATE_KEY);
         //Check for project template
         if (savedTemplateFromProject!=null && !savedTemplateFromProject.isEmpty()){

@@ -3,12 +3,12 @@ package plugin.helpers;
 import java.util.logging.Level;
 
 public class Config {
-    public static java.util.logging.Level LOG_LEVEL = Level.OFF;
+    public static java.util.logging.Level LOG_LEVEL = Level.ALL;
     public static String EXTENSION_NAME = "RIO";
     public static String EXTENSION_SETTINGS_URL = "rio-extension.local";
     public static String EXTENSION_SAVED_TEMPLATE_KEY = "rio-saved-template";
     public static String EXTENSION_SETTINGS_LAST_DIRECTORY_KEY = "rio-last-dir";
-    public static String VERSION="0.6";
+    public static String VERSION="0.7";
     public static String HELP_URL = "https://github.com/TheKalin/rio/docs";
     public static String DEFAULT_TEMPLATE ="# _title_\n" +
             "\n" +
